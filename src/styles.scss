@@ -1,0 +1,83 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+/* You can add global styles to this file, and also import other style files */
+// @import './scss/custome.scss';
+@import './scss/mixing.scss';
+
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,500;1,600;1,700&family=Open+Sans:wght@400;500&display=swap');
+
+// font-family: 'Josefin Sans', sans-serif;
+// font-family: 'Open Sans', sans-serif;
+:root {
+    --light: 300; --light-bold: 500; --semi-bold: 600; --medium-bold: 700; --extra-bold: 800;
+    --bs-body-font-family:'Open Sans', sans-serif !important;
+  }
+
+
+.h-auto {height: auto!important;}
+.w-auto {width: auto!important;}
+.h-100 {height: 100%;}
+.w-100 {width: 100%;}
+.minw-auto {min-width: auto!important;}
+.h-100vh{height:100vh}
+
+.font-jos{font-family: 'Josefin Sans','Open Sans', sans-serif;}
+/* Font-Weight Classes*/
+.light {font-weight: 300;}
+.regular {font-weight: normal;}
+.semibold {font-weight: 600;}
+.bold {font-weight: bold;}
+.extra-bold {font-weight: 900;}
+
+/* General Font size Class */
+.fonts-10{@include fontSize(10px);}
+.fonts-12{@include fontSize(12px);}
+.fonts-14 {@include fontSize(14px);}
+.fonts-16 {@include fontSize(16px);}
+.fonts-18 {@include fontSize(18px);}
+.fonts-20{@include fontSize(20px);}
+.fonts-22{@include fontSize(22px);}
+.fonts-24{@include fontSize(24px);}
+.fonts-26 {@include fontSize(26px);}
+.fonts-28 {@include fontSize(28px);}
+.fonts-30 {@include fontSize(30px);}
+.fonts-32 {@include fontSize(32px);}
+.fonts-33 {@include fontSize(33px);}
+.fonts-36 {@include fontSize(36px);}
+.fonts-38 {@include fontSize(38px);}
+.fonts-40{@include fontSize(40px);}
+.fonts-43{@include fontSize(43px);}
+.fonts-48{@include fontSize(48px);}
+.fonts-56{@include fontSize(56px);}
+.fonts-64{@include fontSize(64px);}
+.fonts-91{@include fontSize(91px);}
+
+.bg-white{background-color: #fff;}
+.bg-black{background-color: #000;}
+.bg-naviblue{background-color: #070044;}
+.bg-primary{background-color: #020e30 !important;}
+.bg-purple{background-color: #7924c7;}
+.btn-bg{background: linear-gradient(0deg, #ff9c19 40%, #ffdd2d 110%);
+ &:hover{    box-shadow: 11px 11px 32px rgba(255, 82, 1, 0.2), -11px -11px 32px rgba(255, 200, 39, 0.4);}}
+.bg-g-primary{background: linear-gradient(0deg, #ff9c19de 10%, #ffdd2dcc 110%);}
+
+.shadow-small{box-shadow:0 0.125rem 0.75rem rgba(255, 156, 25, 0.8705882353)}
+
+.o-auto{overflow: auto;}
+
+// .c-blue{color:#86c6ff}
+.txt-white{color: #fff !important;}
+.txt-red{color: red !important;}
+.txt-primary{color:#ffba22}
+.text-dark{color:#000 !important;}
+
+input{height: 3.2rem;}
+.lh-2{line-height: 2;}
+
+.border{border: 1px solid #999999 !important;}
+*.form-control:focus{box-shadow: none;}
+
+@media (max-width:576px){
+  html{font-size: 90%;}
+  .w-75{width: 100% !important}
+  .fonts-64{@include fontSize(45px);}
+}

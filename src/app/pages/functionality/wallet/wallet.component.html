@@ -1,0 +1,189 @@
+<div class="sub-header py-5">
+  <div class="container py-5">
+    <div class="row py-5">
+      <div class="col-12">
+        <h2 class="fonts-48 text-center txt-white bold mb-4">Wallet</h2>
+        <nav class="fonts-18 d-flex justify-content-center" aria-label="breadcrumb">
+          <ol class="breadcrumb text-white">
+            <li class="breadcrumb-item text-white"><a class="text-white" style="text-decoration: none;"
+                href="#">Home</a></li>
+            <li class="breadcrumb-item text-white active" aria-current="page">Wallet</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="color-section pt-5">
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-12 color-bg rounded justify-content-center">
+        <div class="row">
+          <div class="col-12 game-inner position-relative rounded"
+            style="box-shadow: -3.828px -3.828px 6px 0px rgba(255, 200, 39, 0.4), 3px 5px 8px 0px rgba(255, 82, 1, 0.2);">
+            <div class="row p-4 py-5 position-relative" style="z-index: 1;">
+              <div class="col-6">
+                <div class="w-100 d-flex align-items-center justify-content-between bg-g-primary rounded p-4 px-5 mb-4">
+                  <div class="text-center">
+                    <svg height="45px" width="45px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                      <title>wallet-outline</title>
+                      <path
+                        d="M5,3C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V16.72C21.59,16.37 22,15.74 22,15V9C22,8.26 21.59,7.63 21,7.28V5A2,2 0 0,0 19,3H5M5,5H19V7H13A2,2 0 0,0 11,9V15A2,2 0 0,0 13,17H19V19H5V5M13,9H20V15H13V9M16,10.5A1.5,1.5 0 0,0 14.5,12A1.5,1.5 0 0,0 16,13.5A1.5,1.5 0 0,0 17.5,12A1.5,1.5 0 0,0 16,10.5Z" />
+                    </svg>
+                    <!-- <img class="text-center" src="../../../../assets/img/icons8-atm-48.png"> -->
+                    <h5 class="text-center text-dark semibold mb-0">Wallet</h5>
+                  </div>
+                  <div>
+                    <h5 class="ms-auto text-dark semibold mb-2">Wallet Balance</h5>
+                    <h5 class="ms-auto text-dark text-center semibold mb-0"> Rs. {{walletAmount}}</h5>
+                  </div>
+                </div>
+
+                <div class="w-100 text-white border rounded p-4 py-5" style="background: #6a6a6a3b;
+                                    border: 2px solid rgba(255, 255, 255, 0.17);
+                                    -webkit-backdrop-filter: blur(15px);
+                                    backdrop-filter: blur(4px);">
+                  <div class="w-100 mb-4 position-relative">
+                    <p class="fonts-18 mb-2">Amount</p>
+                    <input type="number" [formControl]="amount" class="float-right form-control fonts-16"
+                      id="exampleFormControlInput1" placeholder="Amount">
+                  </div>
+                  <div class="w-100 mb-4 position-relative">
+                    <p class="fonts-18 mb-2">UPI ID</p>
+                    <input type="text" [formControl]="upiID" class="float-right form-control fonts-16"
+                      id="exampleFormControlInput1" placeholder="UIP ID">
+                  </div>
+                  <p class="fonts-18 mb-2" style="margin-bottom: -1rem !important;">Payment Mode</p>
+                  <div class="grid-wrapper mb-5">
+                    <label for="radio-card-1" class="radio-card" (click)="paymentMode = 'Google Pay'">
+                      <input type="radio" name="radio-card" id="radio-card-1" checked />
+                      <div class="card-content-wrapper">
+                        <span class="check-icon"></span>
+                        <div class="card-content text-center">
+                          <img src="./../../../../assets/img/google-pay.png" class="img-fluid" />
+                          <h4>Google Pay</h4>
+                        </div>
+                      </div>
+                    </label>
+                    <label for="radio-card-2" class="radio-card" (click)="paymentMode = 'Phone Pay'">
+                      <input type="radio" name="radio-card" id="radio-card-2" />
+                      <div class="card-content-wrapper">
+                        <span class="check-icon"></span>
+                        <div class="card-content text-center">
+                          <img src="./../../../../assets/img/phonepay.png" class="img-fluid" />
+                          <h4>Phone pay</h4>
+                        </div>
+                      </div>
+                    </label>
+                    <label for="radio-card-3" class="radio-card" (click)="paymentMode = 'Paytm'">
+                      <input type="radio" name="radio-card" id="radio-card-3" />
+                      <div class="card-content-wrapper">
+                        <span class="check-icon"></span>
+                        <div class="card-content text-center">
+                          <img src="./../../../../assets/img/paytam.png" class="img-fluid" />
+                          <h4>Paytm</h4>
+                        </div>
+                      </div>
+                    </label>
+                  </div>
+                  <p class="fonts-16 txt-red text-center" *ngIf="errorMessage">{{errorMessage}}</p>
+                  <div class="d-flex justify-content-center">
+                    <!-- <button type="button"
+                      class="w-auto btn btn-bg rounded-pill border-0 bg-purple fonts-18 bold py-2 px-5 lh-2 mx-auto mb-2"
+                      data-bs-toggle="modal" data-bs-target="#exampleModal">Pay
+                    </button> -->
+                    <button type="button"
+                      class="w-auto btn btn-bg rounded-pill border-0 bg-purple fonts-18 bold py-2 px-5 lh-2 mx-auto mb-2"
+                      (click)="addMoney()">Recharge
+                    </button>
+                  </div>
+                </div>
+
+              </div>
+              <div class="col-6">
+                <h2 class="text-center text-white mb-3">Wallet History</h2>
+                <div class="table-responsive rounded text-white">
+                  <table class="table table-bordered mb-0">
+                    <thead class="bg-g-primary border-0">
+                      <tr class="btn-bg border-0">
+                        <th class="text-center  py-3" scope="col">Sr No.</th>
+                        <th class="text-center py-3" scope="col">Date</th>
+                        <!-- <th class="text-center py-3" scope="col">Time</th> -->
+                        <th class="text-center py-3" scope="col">Payment Mode</th>
+                        <th class="text-center py-3" scope="col">Amount</th>
+                        <th class="text-center py-3" scope="col">Status</th>
+                      </tr>
+                    </thead>
+                    <tr *ngFor="let item of walletHistory">
+                      <td class="text-center">1</td>
+                      <td class="text-center">{{item?.created_at | date:'dd-MM-YYYY HH:mm' }}</td>
+                      <!-- <td class="text-center">10:34 PM</td> -->
+                      <td class="text-center">{{item?.payment_mode || 'G-Pay' }}</td>
+                      <td class="text-center">{{item?.amount}}</td>
+                      <td *ngIf="item?.status == '1'" style="color: yellow;">Pending</td>
+                      <td *ngIf="item?.status == '2'" style="color: green;">Verified</td>
+                      <td *ngIf="item?.status == '3'" style="color: red;">Decline</td>
+                    </tr>
+                    <tr *ngIf="walletHistory?.length == 0">
+                      <td class="text-center" colspan="5"> No Record Found.</td>
+                    </tr>
+
+                  </table>
+                </div>
+                <div class="w-100 d-flex align-items-center text-white rounded px-4 py-2" style="background: rgb(86 86 86 / 47%);
+                                    border: 2px solid rgba(255, 255, 255, 0.17);
+                                    -webkit-backdrop-filter: blur(15px);
+                                    backdrop-filter: blur(15px);">
+                  <p class="mb-0 semibold fonts-18">250</p>
+                  <div class="ms-auto">
+                    <nav aria-label="Page navigation example d-flex justify-content-end" style="background: #48484800;">
+                      <ul class="pagination mb-0" style=" --bs-pagination-bg: rgba(255, 255, 255, 0);">
+                        <li class="page-item">
+                          <a class="page-link" href="#" aria-label="Previous">
+                            <svg height="20px" width="20px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                              <title>skip-backward</title>
+                              <path d="M20,5V19L13,12M6,5V19H4V5M13,5V19L6,12" fill="#fff" />
+                            </svg>
+                          </a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                          <a class="page-link" href="#" aria-label="Next">
+                            <svg height="20px" width="20px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                              <title>skip-forward</title>
+                              <path d="M4,5V19L11,12M18,5V19H20V5M11,5V19L18,12" fill="#fff" />
+                            </svg>
+                          </a>
+                        </li>
+                      </ul>
+                    </nav>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog  modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header border-0">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body pb-5">
+        <div class="qr-outer d-flex justify-content-center mx-auto">
+          <img class="h-100 w-100 mx-auto" src="../../../../assets/img/qrcode.png" alt="qrcode">
+        </div>
+        <p class="fonts-18 text-center semibold mb-0">4152562@ybl</p>
+      </div>
+    </div>
+  </div>
+</div>

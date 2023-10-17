@@ -1,0 +1,179 @@
+<div class="sub-header py-5">
+  <div class="container py-5">
+    <div class="row py-5">
+      <div class="col-12">
+        <h2 class="fonts-48 text-center txt-white bold mb-4">WithDraw Money</h2>
+        <nav class="fonts-18 d-flex justify-content-center" aria-label="breadcrumb">
+          <ol class="breadcrumb text-white">
+            <li class="breadcrumb-item text-white"><a class="text-white" style="text-decoration: none;"
+                href="#">Home</a></li>
+            <li class="breadcrumb-item text-white active" aria-current="page">Withdraw Money</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="color-section pt-5">
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-12 color-bg rounded justify-content-center">
+        <div class="row">
+          <div class="col-12 game-inner position-relative rounded"
+            style="box-shadow: -3.828px -3.828px 6px 0px rgba(255, 200, 39, 0.4), 3px 5px 8px 0px rgba(255, 82, 1, 0.2);">
+            <div class="row d-flex align-items-center p-4 py-5 position-relative" style="z-index: 1;">
+              <div class="h-100 col-6">
+                <!-- <div class="w-100 d-flex align-items-center justify-content-between bg-g-primary rounded p-4 px-5 mb-4">
+                                    <div class="text-center">
+                                        <img class="text-center" src="../../../../assets/img/icons8-atm-48.png">
+                                        <h5 class="text-center text-dark semibold mb-0">Withdrawal</h5>
+                                    </div>
+                                    <div>
+                                        <h5 class="ms-auto text-dark semibold mb-2">Available Balance</h5>
+                                        <h5 class="ms-auto text-dark text-center semibold mb-0"> $0</h5>
+                                    </div>
+                                </div> -->
+
+                <div class="w-100 h-100 text-white border rounded p-4 py-5" style="background: #6a6a6a3b;
+                                border: 2px solid rgba(255, 255, 255, 0.17);
+                                -webkit-backdrop-filter: blur(4px);
+                                backdrop-filter: blur(4px);">
+                  <div>
+                    <div class="d-block text-center">
+                      <div
+                        class="bg-g-primary d-flex align-items-center justify-content-center mx-auto rounded-circle mb-3"
+                        style="height: 100px;width: 100px;">
+                        <img class="text-center" src="../../../../assets/img/icons8-atm-48.png">
+                      </div>
+                      <h5 class="text-center mb-3">Withdrawal</h5>
+                    </div>
+                    <div class="d-block">
+                      <h5 class="text-center mb-3">Available Balance: <span class="text-center mb-0"> Rs. {{walletAmount}}</span></h5>
+                    </div>
+                  </div>
+                  <p class="fonts-14 mb-0 py-2 text-center mb-4">Note : Withdraw payment available in your account
+                    within 12 HRS.</p>
+                  <div class="d-flex justify-content-center">
+                    <button type="button" (click)="debitAmountFromWallet()"
+                      class="w-auto btn btn-bg rounded-pill border-0 bg-purple fonts-18 bold py-2 px-5 lh-2 mx-auto mb-5">Withdraw
+                      Payment
+                    </button>
+                  </div>
+                  <p class="fonts-16 txt-red text-center" *ngIf="errorMessage">{{errorMessage}}</p>
+                  <div class="w-100 mb-4 position-relative">
+                    <p class="fonts-18 mb-2">Withdraw Amount</p>
+                    <span class="position-relative">
+                      <input type="text" [formControl]="debitAmount" class="float-right form-control fonts-16"
+                        id="exampleFormControlInput1" placeholder="Withdraw Amount">
+                      <button class="btn bg-transparent" style="position: absolute;right: 0; top: 6px;">
+                        <svg height="24" width="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                          <title>arrow-right</title>
+                          <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"
+                            fill="#000" />
+                        </svg>
+                      </button>
+                    </span>
+                  </div>
+
+                  <div class="w-100 mb-4 position-relative">
+                    <p class="fonts-18 mb-2">Withdraw Payment UPI</p>
+                    <span class="position-relative">
+                      <input type="text" [formControl]="upiId" class="float-right form-control fonts-16"
+                        id="exampleFormControlInput1" placeholder="UPI ID">
+                      <!-- <button class="btn bg-transparent" style="position: absolute;right: 0; top: 6px;">
+                        <svg height="24" width="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                          <title>arrow-right</title>
+                          <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"
+                            fill="#000" />
+                        </svg>
+                      </button> -->
+                    </span>
+                  </div>
+
+                </div>
+
+              </div>
+              <div class="col-6">
+                <h2 class="text-center text-white mb-3">Withdraw History</h2>
+                <div class="table-responsive rounded text-white">
+                  <table class="table table-bordered mb-0">
+                    <thead class="bg-g-primary border-0">
+                      <tr class="btn-bg border-0">
+                        <th class="text-center  py-3" scope="col">Sr No.</th>
+                        <th class="text-center py-3" scope="col">Date</th>
+                        <!-- <th class="text-center py-3" scope="col">PaymentMode</th> -->
+                        <th class="text-center py-3" scope="col">Amount</th>
+                        <th class="text-center py-3" scope="col">Status</th>
+                      </tr>
+                    </thead>
+                    <tr *ngFor="let item of debitHistory">
+                      <td class="text-center">1</td>
+                      <td class="text-center">{{item?.created_at | date:'dd-MM-YYYY HH:mm' }}</td>
+                      <td class="text-center">Rs. {{item?.amount}}</td>
+                      <td *ngIf="item?.status == '1'" style="color: yellow;">Pending</td>
+                      <td *ngIf="item?.status == '2'" style="color: green;">Verified</td>
+                      <td *ngIf="item?.status == '3'" style="color: red;">Decline</td>
+                    </tr>
+                    <tr *ngIf="debitHistory?.length == 0">
+                      <td class="text-center" colspan="5">No Record Found.</td>
+                    </tr>
+
+                  </table>
+                </div>
+                <div class="w-100 d-flex align-items-center text-white rounded px-4 py-2" style="background: rgb(86 86 86 / 47%);
+                                  border: 2px solid rgba(255, 255, 255, 0.17);
+                                  -webkit-backdrop-filter: blur(15px);
+                                  backdrop-filter: blur(15px);">
+
+                  <div class="ms-auto">
+                    <nav aria-label="Page navigation example d-flex justify-content-end" style="background: #48484800;">
+                      <ul class="pagination mb-0" style=" --bs-pagination-bg: rgba(255, 255, 255, 0);">
+                        <li class="page-item">
+                          <a class="page-link" href="#" aria-label="Previous">
+                            <svg height="20px" width="20px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                              <title>skip-backward</title>
+                              <path d="M20,5V19L13,12M6,5V19H4V5M13,5V19L6,12" fill="#fff" />
+                            </svg>
+                          </a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                          <a class="page-link" href="#" aria-label="Next">
+                            <svg height="20px" width="20px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                              <title>skip-forward</title>
+                              <path d="M4,5V19L11,12M18,5V19H20V5M11,5V19L18,12" fill="#fff" />
+                            </svg>
+                          </a>
+                        </li>
+                      </ul>
+                    </nav>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog  modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header border-0">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body pb-5">
+        <div class="qr-outer d-flex justify-content-center mx-auto">
+          <img class="h-100 w-100 mx-auto" src="../../../../assets/img/qrcode.png" alt="qrcode">
+        </div>
+        <p class="fonts-18 text-center semibold mb-0">4152562@ybl</p>
+      </div>
+    </div>
+  </div>
+</div>

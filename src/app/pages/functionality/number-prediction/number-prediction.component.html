@@ -1,0 +1,204 @@
+<div class="sub-header py-5">
+  <div class="container py-5">
+    <div class="row py-5">
+      <div class="col-12">
+        <h2 class="fonts-48 text-center txt-white bold mb-4">Number Prediction</h2>
+        <nav class="fonts-18 d-flex justify-content-center" aria-label="breadcrumb">
+          <ol class="breadcrumb text-white">
+            <li class="breadcrumb-item text-white"><a class="text-white" style="text-decoration: none;"
+                href="#">Home</a></li>
+            <li class="breadcrumb-item text-white" aria-current="page">Number Prediction</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="color-section pt-5">
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-10 color-bg rounded justify-content-center">
+        <div class="row p-5">
+          <div class="col-12 game-inner position-relative rounded mb-5"
+            style="box-shadow: -3.828px -3.828px 6px 0px rgba(255, 200, 39, 0.4), 3px 5px 8px 0px rgba(255, 82, 1, 0.2);">
+            <div class="row p-4 position-relative" style="z-index: 1;">
+              <div class="col-6" (click)="openResult('10', '1', '200')">
+                <p class="d-flex align-items-center btn-bg semibold fonts-18 rounded p-2 py-3 mb-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="mx-3" height="24" width="24" viewBox="0 0 24 24">
+                    <title>wallet-bifold-outline</title>
+                    <path
+                      d="M15.5 15.5C16.33 15.5 17 14.83 17 14C17 13.17 16.33 12.5 15.5 12.5C14.67 12.5 14 13.17 14 14C14 14.83 14.67 15.5 15.5 15.5M7 3H17C18.11 3 19 3.9 19 5V7C20.11 7 21 7.9 21 9V19C21 20.11 20.11 21 19 21H7C4.79 21 3 19.21 3 17V7C3 4.79 4.79 3 7 3M17 7V5H7C5.9 5 5 5.9 5 7V7.54C5.59 7.2 6.27 7 7 7H17M5 17C5 18.11 5.9 19 7 19H19V9H7C5.9 9 5 9.9 5 11V17Z"
+                      fill="#000" />
+                  </svg>
+                  Balance : Rs. {{walletAmount}}
+                </p>
+              </div>
+              <div class="col-6">
+                <button class="btn btn-bg w-100 semibold py-3 fonts-18" routerLink="/game/wallet">Recharge</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 game-inner position-relative rounded mb-5"
+            style=" box-shadow: -3.828px -3.828px 6px 0px rgba(255, 200, 39, 0.4), 3px 5px 8px 0px rgba(255, 82, 1, 0.2);">
+            <div class="row p-4  border-bottom position-relative" style="z-index: 1;">
+              <div class="col-12">
+                <div class="d-flex align-items-center justify-content-between">
+                  <div>
+                    <p class="fonts-20 semibold  mb-0">Period ID: <span class="txt-primary semibold fonts-22 px-2">
+                        2023924852</span></p>
+                  </div>
+                  <div>
+                    <p class="fonts-20 semibold mb-0">Count Down: <span
+                        class="txt-primary semibold fonts-24 px-2">{{display || "00 : 00"}}</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row p-4 position-relative" style="z-index: 1;">
+              <div class="col-12 text-white">
+                <!-- <div class="d-flex align-items-center justify-content-between my-4">
+                                    <div>
+                                      <button class="btn text-white rounded-pill py-2 semibold px-5 border-0" style="background-color: #008000;">Tap Green</button>
+                                    </div>
+                                    <div>
+                                        <button class="btn text-white rounded-pill py-2 semibold px-5 border-0" style="background-color: #ff0000;">Tap Red</button>
+                                    </div>
+                                    <div>
+                                    <button class="btn text-white rounded-pill py-2 semibold px-5 border-0" style="background-color: #f118e0;">Tap Violate</button>
+                                    </div>
+                                </div>
+                            </div> -->
+                <div class="col-10 mx-auto text-white">
+                  <div class="d-flex align-items-center justify-content-between">
+                    <div>
+                      <button (click)="selectNumber('1')" [ngClass]="{'active' : selectedNumber == '1'}"
+                        class="btn btn-circle border rounded text-white box bold border-0 my-4">1</button>
+                    </div>
+                    <div>
+                      <button (click)="selectNumber('2')" [ngClass]="{'active' : selectedNumber == '2'}"
+                        class="btn btn-circle border rounded text-white box bold border-0 my-4">2</button>
+                    </div>
+                    <div>
+                      <button (click)="selectNumber('3')" [ngClass]="{'active' : selectedNumber == '3'}"
+                        class="btn btn-circle border rounded text-white box bold border-0 my-4">3</button>
+                    </div>
+                    <div>
+                      <button (click)="selectNumber('4')" [ngClass]="{'active' : selectedNumber == '4'}"
+                        class="btn btn-circle border rounded text-white box bold border-0 my-4">4</button>
+                    </div>
+                    <div>
+                      <button (click)="selectNumber('5')" [ngClass]="{'active' : selectedNumber == '5'}"
+                        class="btn btn-circle border rounded text-white box bold border-0 my-4">5</button>
+                    </div>
+                  </div>
+                  <div class="d-flex align-items-center justify-content-between">
+                    <div>
+                      <button (click)="selectNumber('6')" [ngClass]="{'active' : selectedNumber == '6'}"
+                        class="btn btn-circle border rounded text-white box bold border-0 my-4">6</button>
+                    </div>
+                    <div>
+                      <button (click)="selectNumber('7')" [ngClass]="{'active' : selectedNumber == '7'}"
+                        class="btn btn-circle border rounded text-white box bold border-0 my-4">7</button>
+                    </div>
+                    <div>
+                      <button (click)="selectNumber('8')" [ngClass]="{'active' : selectedNumber == '8'}"
+                        class="btn btn-circle border rounded text-white box bold border-0 my-4">8</button>
+                    </div>
+                    <div>
+                      <button (click)="selectNumber('9')" [ngClass]="{'active' : selectedNumber == '9'}"
+                        class="btn btn-circle border rounded text-white box bold border-0 my-4">9</button>
+                    </div>
+                    <div>
+                      <button (click)="selectNumber('10')" [ngClass]="{'active' : selectedNumber == '10'}"
+                        class="btn btn-circle border rounded text-white box bold border-0 my-4">10</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="showCoin" class="col-12 game-inner position-relative rounded mb-5"
+            style="box-shadow: -3.828px -3.828px 6px 0px rgba(255, 200, 39, 0.4), 3px 5px 8px 0px rgba(255, 82, 1, 0.2);">
+            <div class="row p-4 mb-5 position-relative" style="z-index: 1;">
+              <div class="coin-wrapper" *ngIf="!gameStarted">
+                <div class="coin" (click)="selectAmount(10)">
+                  <div class="front">
+                    <span class="currency">₹10</span>
+                  </div>
+                </div>
+                <div class="coin" (click)="selectAmount(20)">
+                  <div class="front">
+                    <span class="currency">₹20</span>
+                  </div>
+                </div>
+                <div class="coin" (click)="selectAmount(50)">
+                  <div class="front">
+                    <span class="currency">₹50</span>
+                  </div>
+                </div>
+                <div class="coin" (click)="selectAmount(100)">
+                  <div class="front">
+                    <span class="currency">₹100</span>
+                  </div>
+                </div>
+                <div class="coin" (click)="selectAmount(200)">
+                  <div class="front">
+                    <span class="currency">₹200</span>
+                  </div>
+                </div>
+              </div>
+              <div *ngIf="gameStarted" style="text-align: center;">
+                <h3 style="color: rgb(241, 104, 104);">Game Stated waiting for result {{display}}</h3>
+              </div>
+            </div>
+            <div *ngIf="!gameStarted" class="row p-4 position-relative" style="z-index: 1;">
+              <div class="d-flex justify-content-center align-items-center" style="gap:40px">
+                <input type="text" [formControl]="enterGameAmount" style="flex: 0.4; height: 44px; min-width:240px"
+                  class="form-control fonts-16" />
+                <button (click)="startGame()" class="btn btn-bg w-50 py-2 semibold fonts-18"
+                  style="flex: 0.1; min-width:80px">Start</button>
+              </div>
+              <br><br><br>
+              <p class="fonts-16 txt-red text-center" *ngIf="amountError">
+                {{amountError}}
+              </p>
+            </div>
+          </div>
+          <div class="col-12 game-inner position-relative rounded"
+            style="box-shadow: -3.828px -3.828px 6px 0px rgba(255, 200, 39, 0.4), 3px 5px 8px 0px rgba(255, 82, 1, 0.2);">
+            <div class="row py-5 p-4 position-relative" style="z-index: 1;">
+              <div class="table-responsive">
+                <table class="table table-bordered mb-0">
+                  <thead>
+                    <tr class="btn-bg">
+                      <th class="text-center py-3" scope="col">Txt</th>
+                      <th class="text-center py-3" scope="col">Date</th>
+                      <th class="text-center py-3" scope="col">Period ID</th>
+                      <th class="text-center py-3" scope="col">Amount</th>
+                      <th class="text-center py-3" scope="col">Tail Number</th>
+                      <th class="text-center py-3" scope="col">Number</th>
+                    </tr>
+                  </thead>
+                  <tr *ngFor="let item of gameHistory">
+                    <td class="text-center">1</td>
+                    <td class="text-center">{{item?.game_prediction?.created_at | date : 'dd-MM-YYYY hh:m a'}}</td>
+                    <td class="text-center">{{item?.game_prediction?.id}}</td>
+                    <td class="text-center">{{item?.amount}}</td>
+                    <td class="text-center">{{item?.game_number}}</td>
+                    <td class="text-center">
+                      <button
+                        class="btn btn-circle  rounded-circle semibold border-0 my-4">{{item?.result_number}}</button>
+                    </td>
+                  </tr>
+                  <tr *ngIf="gameHistory?.length == 0">
+                    <td class="text-center" colspan="5">No Record Found.</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

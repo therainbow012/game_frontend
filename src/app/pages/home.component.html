@@ -1,0 +1,82 @@
+<div>
+  <!-- header div -->
+  <div class="header bg-primary">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg font-jos py-3">
+        <div class="container-fluid">
+          <a class="navbar-brand logo mx-xl-auto mx-lg-auto mx-md-auto mx-sm-none mx-none" routerLink="/game/home">
+            <img class="h-100 w-100" src="../../../../assets/img/logo.png" alt="logo">
+          </a>
+          <button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto fonts-18  mb-2 mb-lg-0">
+              <li class="nav-item txt-white">
+                <a class="nav-link txt-white mx-2 active" aria-current="page" routerLink="/game/home">HOME</a>
+              </li>
+              <li class="nav-item txt-white">
+                <a class="nav-link txt-white mx-2" routerLink="/game/home">GAME RULE</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link txt-white mx-2" routerLink="/game/wallet" >WALLET</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link txt-white mx-2" routerLink="/game/withdraw" >WITHDRAW</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link txt-white mx-2" routerLink="/game/home" >CONTACT US</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link txt-white mx-2" (click)="logOut()">LOGOUT</a>
+              </li>
+            </ul>
+
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+
+  <!-- content page -->
+  <div>
+    <router-outlet>
+    </router-outlet>
+  </div>
+
+  <!-- Footer Div -->
+  <div class="bg-primary footer">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg py-3">
+        <div class="container-fluid">
+          <div class="row w-100">
+            <div class="col-12 d-xl-flex d-lg-flex d-md-flex d-sm-block d-block align-items-center w-100">
+              <a class="navbar-brand logo" routerLink="/game/home">
+                <img class="h-100 w-100" src="../../../../assets/img/logo.png" alt="logo">
+              </a>
+              <div class="collapse navbar-collapse  d-flex justify-content-xl-end justify-content-lg-end justify-content-md-end justify-content-sm-center justify-content-center" id="navbarSupportedContent">
+                <ul class="navbar-nav d-flex align-items-center  fonts-18   mb-2 mb-lg-0" style="flex-flow: inherit;">
+                  <li class="nav-item text-center txt-white">
+                    <a class="nav-link txt-white mx-2" style="white-space: pre;" routerLink="/game/home">Games</a>
+                  </li>
+                  <li class="nav-item text-center">
+                    <a class="nav-link txt-white mx-2" style="white-space: pre;" routerLink="/game/privacy-policy" >Terms & Conditions</a>
+                  </li>
+                  <li class="nav-item text-center">
+                    <a class="nav-link txt-white mx-2" style="white-space: pre;" routerLink="/game/privacy-policy" >Privacy Policy</a>
+                  </li>
+                </ul>
+    
+              </div>
+            </div>
+          </div>
+         
+        </div>
+      </nav>
+
+    </div>
+    <div class="footer-bottom">
+      <p class="fonts-18 text-center txt-white py-4 mb-0">Copyrights © 2023 All Rights </p>
+    </div>
+  </div>
+</div>

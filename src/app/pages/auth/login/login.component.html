@@ -1,0 +1,69 @@
+<div class="bg-outer h-100vh">
+  <div class="h-100vh o-auto bg-overlay">
+    <div class="h-100 container py-5">
+      <div class="row d-flex align-items-center justify-content-center h-100">
+        <div class="col-xl-5 col-lg-5 col-md-10 col-sm-12 col-12">
+          <div class="login-bg mb-5 p-5">
+            <div class="my-5">
+              <form [formGroup]="loginForm" (ngSubmit)="login()">
+                <div class="logo mx-auto mb-5">
+                  <img class="h-100 w-100" src="../../../../assets/img/logo.png" alt="logo">
+                </div>
+                <div class="mb-3 position-relative">
+                  <input type="email" class="form-control fonts-16" id="exampleFormControlInput1" placeholder="Username"
+                    formControlName="username">
+                  <span class="icon-fill">
+                    <svg height="24" width="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                      <title>account</title>
+                      <path
+                        d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z" />
+                    </svg>
+                  </span>
+                  <p class="fonts-16 txt-red" *ngIf="
+                  loginForm.controls.username?.touched &&
+                  loginForm.controls.username?.errors?.['required']">Please enter username</p>
+                </div>
+                <div class="mb-3 position-relative">
+                  <input type="password" class="form-control fonts-16" id="exampleFormControlInput1"
+                    placeholder="Password" formControlName="password">
+                  <span class="icon-fill">
+                    <svg height="24" width="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                      <title>key-variant</title>
+                      <path
+                        d="M22,18V22H18V19H15V16H12L9.74,13.74C9.19,13.91 8.61,14 8,14A6,6 0 0,1 2,8A6,6 0 0,1 8,2A6,6 0 0,1 14,8C14,8.61 13.91,9.19 13.74,9.74L22,18M7,5A2,2 0 0,0 5,7A2,2 0 0,0 7,9A2,2 0 0,0 9,7A2,2 0 0,0 7,5Z" />
+                    </svg>
+                  </span>
+                  <p class="fonts-16 txt-red" *ngIf="
+                  loginForm.controls.password?.touched &&
+                  loginForm.controls.password?.errors?.['required']">Please enter password</p>
+                  <p class="fonts-16 txt-red" *ngIf="
+                                    loginForm.controls.password?.touched &&
+                                    loginForm.controls.password?.errors?.['pattern']">Please enter valid password</p>
+                </div>
+                <div class="d-flex align-items-center my-3 pt-2">
+                  <button type="submit"
+                    class="d-flex align-items-center rounded-pill w-100 btn btn-bg fonts-18 border-0 bg-purple py-2 lh-2 me-2 mb-2">
+                    <span class="w-100 d-flex justify-content-center fonts-18 bold"> Login </span>
+                    <!-- <svg class="ms-auto" height="24" width="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>login</title><path d="M10,17V14H3V10H10V7L15,12L10,17M10,2H19A2,2 0 0,1 21,4V20A2,2 0 0,1 19,22H10A2,2 0 0,1 8,20V18H10V20H19V4H10V6H8V4A2,2 0 0,1 10,2Z" fill="#fff" /></svg> -->
+                  </button>
+                  <button type="button"
+                    class="w-100 btn btn-bg rounded-pill border-0 bg-purple fonts-18 bold py-2 lh-2 mb-2"
+                    routerLink="/register">Registration
+                  </button>
+                </div>
+
+                <p class="fonts-14 text-white text-center"> <a
+                    class="c-blue text-decoration-none semibold" routerLink="/forgot-password">Forgot Password ?</a></p>
+
+                <p class="fonts-14 text-white text-center">This site is protected by re CAPTCHA and the Google <a
+                    class="c-blue text-decoration-none semibold" href="#" target="_blank">Privacy
+                    Policy</a> and <a class="c-blue text-decoration-none semibold" href="#" target="_blank">Terms of
+                    Service</a> apply.</p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

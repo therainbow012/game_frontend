@@ -1,0 +1,22 @@
+/* Font size Function */
+@function calculateRem($size) {$remSize: calc($size / 16px); @return #{$remSize}rem;}
+
+@mixin fontSize($size) {font-size: calculateRem($size);}
+@media (min-width:320px) and (max-width:520px){
+    @mixin fontSize($size) {font-size: calculateRem($size - 1);}
+}
+/* Margin */
+@mixin margin($size) {margin: calculateRem($size);}
+@mixin margin-top($size) {margin-top: calculateRem($size)!important;}
+@mixin margin-right($size) {margin-right: calculateRem($size)!important;}
+@mixin margin-bottom($size) {margin-bottom: calculateRem($size)!important;}
+@mixin margin-left($size) {margin-left: calculateRem($size)!important;}
+
+/* Padding */
+@mixin padding($size) {padding: calculateRem($size);}
+@mixin padding-top($size) {padding-top: calculateRem($size);}
+@mixin padding-left($size) {padding-left: calculateRem($size);}
+@mixin padding-right($size) {padding-right: calculateRem($size);}
+@mixin padding-bottom($size) {padding-bottom: calculateRem($size);}
+@mixin padding-x($size) {padding-left: calculateRem($size)!important; padding-right: calculateRem($size)!important;}
+@mixin padding-y($size) {padding-top: calculateRem($size)!important; padding-bottom: calculateRem($size)!important;}

@@ -1,0 +1,80 @@
+<div class="bg-outer h-100vh">
+  <div class="h-100vh o-auto bg-overlay">
+    <div class="h-100  container py-5">
+      <div class="row d-flex align-items-center justify-content-center h-100">
+        <div class="col-xl-5 col-lg-5 col-md-10 col-sm-12 col-12">
+          <div class="login-bg mb-5 p-5">
+            <div>
+              <form [formGroup]="registerForm" (ngSubmit)="registerUser()">
+                <div class="logo mx-auto mb-4">
+                  <img class="h-100 w-100" src="../../../../assets/img/logo.png">
+                </div>
+                <div class="row">
+                  <div class="col-12 mb-3 position-relative">
+                    <input type="text" class="form-control fonts-14" id="exampleFormControlInput1"
+                      placeholder="First Name" formControlName="first_name">
+                    <p class="fonts-14 txt-red" *ngIf="
+                      registerForm.controls.first_name?.touched &&
+                      registerForm.controls.first_name?.errors?.['required']">Please enter first name</p>
+                  </div>
+                  <div class="col-12 mb-3 position-relative">
+                    <input type="text" class="form-control fonts-14" id="exampleFormControlInput1"
+                      placeholder="Last Name" formControlName="last_name">
+                    <p class="fonts-14 txt-red" *ngIf="
+                      registerForm.controls.last_name?.touched &&
+                      registerForm.controls.last_name?.errors?.['required']">Please enter last name</p>
+                  </div>
+                  <div class="col-12 mb-3 position-relative">
+                    <input type="tel" class="form-control fonts-14" id="exampleFormControlInput1"
+                      placeholder="Mobile Number/Email" formControlName="mobile_number">
+                    <p class="fonts-14 txt-red" *ngIf="
+                      registerForm.controls.mobile_number?.touched &&
+                      registerForm.controls.mobile_number?.errors?.['required']">Please enter email / mobile number</p>
+                  </div>
+                  <!-- <div class="col-12 mb-3 position-relative">
+                    <input type="email" class="form-control fonts-14" id="exampleFormControlInput1"
+                      placeholder="Email (optional)" formControlName="email">
+                  </div> -->
+                  <div class="col-12 mb-3 position-relative">
+                    <input type="text" class="form-control fonts-14" id="exampleFormControlInput1"
+                      placeholder="Username" formControlName="username">
+                    <p class="fonts-14 txt-red" *ngIf="
+                      registerForm.controls.username?.touched &&
+                      registerForm.controls.username?.errors?.['required']">Please enter username</p>
+                  </div>
+                  <div class="col-12 mb-3  position-relative">
+                    <input type="password" class="form-control fonts-14" id="exampleFormControlInput1"
+                      placeholder="Password" formControlName="password">
+                    <p class="fonts-14 txt-red" *ngIf=" registerForm.controls.password?.touched &&
+                                    registerForm.controls.password?.errors?.['required']">
+                      Please enter password
+                    </p>
+                    <p class="fonts-14 txt-red" *ngIf=" registerForm.controls.password?.touched &&
+                                    registerForm.controls.password?.errors?.['pattern']">
+                      Password length must be 8 or more and at least 1 uppercase letter, 1 number and
+                      1 special character!
+                    </p>
+                  </div>
+                  <div class="col-12 mb-3  position-relative">
+                    <input type="password" class="form-control fonts-14" id="exampleFormControlInput1"
+                      placeholder="Confirm Password" formControlName="confirm_password">
+                    <p class="fonts-14 txt-red" *ngIf="registerForm.getError('mismatch')">
+                      Confirm password don't match with set password
+                    </p>
+                  </div>
+                  <button type="submit"
+                    class="fonts-18 rounded-pill w-100 btn btn-bg border-0 semibold bg-purple py-2 lh-2 me-2 mb-2">Submit</button>
+                  <br>
+                  <p class="fonts-14 txt-red" *ngIf="error">Error : {{ error }}</p>
+                  <p class="mb-3 text-center text-white back-login" style="cursor: pointer;" routerLink="/login">Back To
+                    Login</p>
+                </div>
+              </form>
+            </div>
+            <!-- </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

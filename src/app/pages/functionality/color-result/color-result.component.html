@@ -1,0 +1,32 @@
+<div class="rounded p-4" style="background: #2e3146;border: 2px solid #ffba22;">
+  <button (click)="closeModal()"
+    class="btn btn-white d-flex align-items-center shadow-small justify-content-center bg-white rounded-circle" style="height: 45px;width: 45px;    position: absolute;
+  right: -15px; top: -15px;">
+    <svg xmlns="http://www.w3.org/2000/svg" style="line-height:0" height="30" width="30" viewBox="0 0 24 24">
+      <path
+        d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"
+        fill="#000" />
+    </svg>
+  </button>
+  <div *ngIf="isWin">
+    <div class="image-outer mx-auto">
+      <img class="h-100 w-100 mx-auto" src="../../../../assets/img/win.png" alt="qrcode">
+    </div>
+    <div class="d-flex align-items-center justify-content-center text-white flex-column mt-1 mb-4">
+      <h4 class="text-white text-center bold fonts-30">Congratulations ! You Win !</h4>
+      <p class="fonts-22 mb-1"> Your winning Amount : <span> {{ amount }}</span></p>
+      <p class="fonts-22 mb-2"> Your winning color</p>
+      <div class="win_color rounded" [style.backgroundColor]="resultColor"> </div>
+    </div>
+  </div>
+  <div *ngIf="!isWin">
+    <div class="image-over-outer mx-auto">
+      <img class="h-100 w-100 mx-auto" src="../../../../assets/img/game over.png" alt="qrcode">
+    </div>
+    <div class="d-flex align-items-center justify-content-center text-white flex-column mt-1 mb-4">
+      <h4 class="text-white text-center bold fonts-30">You Lost the Game.</h4>
+      <p class="fonts-22 mb-2"> Your lost color</p>
+      <div class="win_color rounded" [style.backgroundColor]="resultColor"> </div>
+    </div>
+  </div>
+</div>
